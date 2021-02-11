@@ -18,7 +18,7 @@
     "serviceName": "hydra-router",
     "serviceDescription": "Service Router",
     "serviceIP": "",
-    "servicePort": "0",
+    "servicePort":  "0",
     "serviceType": "router",
     "plugins": {
       "hydraLogger": {

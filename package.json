@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "node hydra-router.js",
+    "start": "PORT=1234 node hydra-router.js",
     "gctrace": "node --nouse-idle-notification --expose-gc --trace-gc --log-gc hydra-router.js",
     "debug": "node --inspect --debug-brk hydra-router.js",
     "profile": "node --prof hydra-router.js",
