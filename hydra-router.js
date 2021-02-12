@@ -128,9 +128,9 @@ let setupServer = (config, serviceInfo) => {
         });
     });
     if (!config.hydra.serviceInterface) {
-      server.listen(serviceInfo.servicePort || process.env.PORT);
+      server.listen(process.env.PORT || serviceInfo.servicePort);
     } else {
-      server.listen(serviceInfo.servicePort  || process.env.PORT, serviceInfo.serviceIP);
+      server.listen( process.env.PORT || serviceInfo.servicePort, serviceInfo.serviceIP);
     }
   } catch (e) {
     process.exit(1);
@@ -213,7 +213,7 @@ let main = async() => {
     config = newConfig;
 
     let serviceInfo = await hydra.registerService();
-    let logEntry = `Starting service ${serviceInfo.serviceName}:${hydra.getInstanceVersion()} on ${serviceInfo.serviceIP}:${serviceInfo.servicePort}`;
+    let logEntry = `Starting service ${serviceInfo.serviceName}:${hydra.getInstanceVersion()} on ${serviceInfo.serviceIP}:${process.env.PORT || serviceInfo.servicePort}`;
 
     if (loggerType === 'logger') {
       let appLogger = hydraLogger.getLogger();
