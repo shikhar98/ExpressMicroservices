@@ -128,9 +128,9 @@ let setupServer = (config, serviceInfo) => {
         });
     });
     if (!config.hydra.serviceInterface) {
-      server.listen(serviceInfo.servicePort);
+      server.listen(serviceInfo.servicePort || process.env.PORT);
     } else {
-      server.listen(serviceInfo.servicePort, serviceInfo.serviceIP);
+      server.listen(serviceInfo.servicePort  || process.env.PORT, serviceInfo.serviceIP);
     }
   } catch (e) {
     process.exit(1);
